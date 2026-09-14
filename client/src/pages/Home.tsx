@@ -3,13 +3,14 @@ import { Link } from "wouter";
 import {
   Activity,
   Ear,
+  EarOff,
   Scissors,
   Stethoscope,
   Waves,
   ArrowRight,
 } from "lucide-react";
 import { useSeo } from "@/hooks/useSeo";
-import { site, units, showTestimonials } from "@/content/site";
+import { site, units } from "@/content/site";
 import { homeFaq } from "@/content/faq";
 import {
   Section,
@@ -21,7 +22,10 @@ import {
 } from "@/components/site/Primitives";
 import FaqList from "@/components/site/FaqList";
 import UnitCard from "@/components/site/UnitCard";
-import retrato from "@/assets/images/dr-danilo-real.jpg";
+import retrato from "@/assets/images/danilo-mesa-camisa.webp";
+import consultaPaciente from "@/assets/images/danilo-consulta-paciente.webp";
+import exameVestibular from "@/assets/images/danilo-exame-vestibular.webp";
+import retratoSueter from "@/assets/images/danilo-retrato-sueter.webp";
 
 /* Copy verbatim do arquivo de insumos. Onde o original tinha typo evidente
    ("nasalplastia", "valoriam", "casos casos", "aéreas.."), foi corrigido — e só isso. */
@@ -38,6 +42,10 @@ const queixas = [
   {
     icon: Ear,
     text: "Sinusite, dor de ouvido ou de garganta que insistem em voltar",
+  },
+  {
+    icon: EarOff,
+    text: "Sensação de perda auditiva ou dificuldade para entender conversas",
   },
   {
     icon: Scissors,
@@ -65,7 +73,7 @@ const especialidades = [
   {
     href: "/otorrinolaringologia",
     title: "Otorrinolaringologia Geral",
-    text: "Sinusite, dor de ouvido, dor de garganta e pronto atendimento otorrino.",
+    text: "Sinusite, dor de ouvido, dor de garganta, avaliação da perda auditiva e pronto atendimento otorrino.",
     cta: "Ver Otorrinolaringologia Geral",
   },
 ];
@@ -119,19 +127,22 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Retrato em cartão contido: o arquivo original tem 300×330,
-                ampliar borraria. Largura travada para preservar nitidez. */}
+            {/* Retrato do ensaio de set/2026 (1600×1067). O cartão antigo travava
+                a largura em 300px porque o arquivo original tinha 300×330 e
+                ampliar borrava — a trava saiu junto com aquele arquivo. */}
             <div className="md:col-span-5 md:justify-self-end">
               <figure
-                className="relative mx-auto w-full max-w-[300px] overflow-hidden rounded-lg bg-white p-2.5"
+                className="relative mx-auto w-full max-w-[440px] overflow-hidden rounded-lg bg-white p-2.5"
                 style={{ boxShadow: "0 2px 32px rgba(20,49,60,0.10)" }}
               >
                 <img
                   src={retrato}
-                  width={300}
-                  height={330}
-                  alt={`Retrato do ${site.doctor.name}, otorrinolaringologista e otoneurologista em São Paulo`}
-                  className="w-full rounded-md"
+                  width={1600}
+                  height={1067}
+                  alt={`${site.doctor.name}, otorrinolaringologista e otoneurologista, em seu consultório em São Paulo`}
+                  className="h-auto w-full rounded-md"
+                  /* LCP: esta imagem tem de pintar junto com o HTML. */
+                  fetchPriority="high"
                   style={{ display: "block" }}
                 />
                 <figcaption
@@ -155,12 +166,25 @@ export default function Home() {
             <Eyebrow>Para quem eu ajudo</Eyebrow>
             <h2 className="h-section text-balance">Quando você deve me procurar</h2>
             <p className="text-pretty mt-5 text-[0.9375rem] leading-relaxed">
-              Se a tontura te impede de dirigir, trabalhar ou dormir tranquilo, ou
-              se uma dor de ouvido, de garganta ou uma sinusite insistem em voltar,
-              não é preciso conviver com isso. Também acompanho quem já sabe que
-              precisa de uma cirurgia e quer decidir com segurança, com um
-              especialista que também atua na parte cirúrgica há mais de uma década.
+              Se a tontura te impede de dirigir, trabalhar ou dormir tranquilo, se
+              uma dor de ouvido, de garganta ou uma sinusite insistem em voltar, ou
+              se você tem notado dificuldade para ouvir ou entender conversas, não é
+              preciso conviver com isso. Também acompanho quem já sabe que precisa de
+              uma cirurgia e quer decidir com segurança, com um especialista que
+              também atua na parte cirúrgica há mais de uma década.
             </p>
+            <figure className="mt-8 overflow-hidden rounded-lg">
+              <img
+                src={consultaPaciente}
+                width={1600}
+                height={1067}
+                alt="Dr. Danilo Martin Real em consulta, conversando com uma paciente em seu consultório"
+                className="h-auto w-full"
+                loading="lazy"
+                decoding="async"
+                style={{ display: "block" }}
+              />
+            </figure>
           </div>
 
           <ul className="md:col-span-7 space-y-3">
@@ -203,6 +227,18 @@ export default function Home() {
             <div className="mt-8">
               <LinkButton href="/como-eu-cuido">Como eu cuido</LinkButton>
             </div>
+            <figure className="mt-8 overflow-hidden rounded-lg">
+              <img
+                src={exameVestibular}
+                width={1600}
+                height={1067}
+                alt="Dr. Danilo Martin Real realizando avaliação vestibular com óculos de vídeo impulso cefálico (vHIT)"
+                className="h-auto w-full"
+                loading="lazy"
+                decoding="async"
+                style={{ display: "block" }}
+              />
+            </figure>
           </div>
 
           <ul className="md:col-span-6 space-y-5 md:pt-2">
@@ -249,6 +285,19 @@ export default function Home() {
             cirúrgico em atuação desde 2016, atende em São Paulo (SP), unindo
             formação de referência a uma escuta próxima do paciente.
           </p>
+
+          <figure className="mt-10 overflow-hidden rounded-lg">
+            <img
+              src={retratoSueter}
+              width={1200}
+              height={800}
+              alt="Retrato do Dr. Danilo Martin Real em seu consultório em São Paulo"
+              className="h-auto w-full"
+              loading="lazy"
+              decoding="async"
+              style={{ display: "block" }}
+            />
+          </figure>
 
           <dl className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-3">
             {[
@@ -308,26 +357,6 @@ export default function Home() {
               </Link>
             </motion.div>
           ))}
-        </div>
-      </Section>
-
-      {/* 6) Prova social — depoimentos ocultos até autorização escrita. */}
-      <Section tone="white">
-        <div className="container-narrow !px-0 text-center">
-          <Eyebrow>Prova social</Eyebrow>
-          <h2 className="h-section text-balance">
-            O que os pacientes mais valorizam
-          </h2>
-          <p className="text-pretty mx-auto mt-5 max-w-2xl text-[0.9375rem] leading-relaxed">
-            A objetividade no diagnóstico, o tempo dedicado a explicar cada etapa
-            e a segurança de ter, no mesmo médico, quem avalia e quem opera quando
-            a cirurgia é necessária.
-          </p>
-          {showTestimonials && (
-            <p className="mt-6 text-sm" style={{ color: "var(--muted-text)" }}>
-              Depoimentos autorizados serão publicados aqui.
-            </p>
-          )}
         </div>
       </Section>
 

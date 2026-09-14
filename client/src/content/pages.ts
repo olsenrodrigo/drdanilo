@@ -74,10 +74,11 @@ export const pages: PageMeta[] = [
     nav: "Otorrino Geral",
     title: "Otorrinolaringologista em São Paulo | Dr. Danilo Real",
     description:
-      "Sinusite, dor de ouvido, dor de garganta e remoção de cerume com atendimento resolutivo. Otorrinolaringologista clínico em São Paulo (SP), com opção de pronto atendimento.",
+      "Sinusite, dor de ouvido, dor de garganta, perda auditiva e remoção de cerume com atendimento resolutivo. Otorrinolaringologista clínico em São Paulo (SP), com opção de pronto atendimento.",
     keywords: [
       "otorrino são paulo",
       "pronto atendimento otorrino",
+      "avaliação de perda auditiva",
       "tratamento de sinusite",
       "dor de ouvido otorrino",
       "remoção de cerume são paulo",

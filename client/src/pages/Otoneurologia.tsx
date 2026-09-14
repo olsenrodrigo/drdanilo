@@ -10,8 +10,10 @@ import {
   CTABand,
   WhatsAppButton,
   fadeUp,
+  Foto,
 } from "@/components/site/Primitives";
 import { Activity, ScanEye, Repeat, ClipboardList } from "lucide-react";
+import exameVestibular from "@/assets/images/danilo-exame-vestibular.webp";
 
 const queixas = [
   {
@@ -58,6 +60,18 @@ export default function Otoneurologia() {
       >
         <WhatsAppButton origem="otoneurologia — topo" />
       </PageHero>
+
+      <Section tone="white" size="sm">
+        <div className="container-narrow !px-0">
+          <Foto
+            src={exameVestibular}
+            width={1600}
+            height={1067}
+            alt="Dr. Danilo Martin Real realizando avaliação vestibular com óculos de vídeo impulso cefálico (vHIT)"
+          legenda="Avaliação do equilíbrio com vHIT, no consultório."
+          />
+        </div>
+      </Section>
 
       <Section tone="white">
         <div className="container-narrow !px-0">

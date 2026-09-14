@@ -7,7 +7,9 @@ import {
   InfoCard,
   CTABand,
   WhatsAppButton,
+  Foto,
 } from "@/components/site/Primitives";
+import consultaPaciente from "@/assets/images/danilo-consulta-paciente.webp";
 
 const blocos = [
   {
@@ -44,6 +46,18 @@ export default function ComoEuCuido() {
       >
         <WhatsAppButton origem="como eu cuido — topo" />
       </PageHero>
+
+      <Section tone="white" size="sm">
+        <div className="container-narrow !px-0">
+          <Foto
+            src={consultaPaciente}
+            width={1600}
+            height={1067}
+            alt="Dr. Danilo Martin Real conversando com uma paciente durante a consulta"
+          legenda="A consulta começa pela escuta — e é dela que sai o diagnóstico."
+          />
+        </div>
+      </Section>
 
       <Section tone="white">
         <div className="container-narrow !px-0">

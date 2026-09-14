@@ -40,6 +40,11 @@ export const faq: FaqItem[] = [
     home: true,
   },
   {
+    q: "Notei que estou ouvindo pior, o que eu faço?",
+    a: "Vale marcar uma avaliação para identificar a causa: perda auditiva pode ter origens bem diferentes — de cerume acumulado a exposição a ruído — e o diagnóstico correto é o que direciona o tratamento.",
+    home: true,
+  },
+  {
     q: "Como faço para agendar?",
     a: "Pelo WhatsApp, no (11) 93221-9644 — o botão de agendamento está em todas as páginas do site.",
     home: true,

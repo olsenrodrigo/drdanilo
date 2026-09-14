@@ -6,8 +6,10 @@ import {
   Section,
   Eyebrow,
   WhatsAppButton,
+  Foto,
 } from "@/components/site/Primitives";
 import UnitCard from "@/components/site/UnitCard";
+import mesaFrontal from "@/assets/images/danilo-mesa-frontal.webp";
 
 export default function Agendar() {
   useSeo("/agendar");
@@ -25,6 +27,17 @@ export default function Agendar() {
           className="!px-8 !py-4 !text-base"
         />
       </PageHero>
+
+      <Section tone="white" size="sm">
+        <div className="container-narrow !px-0">
+          <Foto
+            src={mesaFrontal}
+            width={1200}
+            height={800}
+            alt="Dr. Danilo Martin Real em seu consultório em São Paulo"
+          />
+        </div>
+      </Section>
 
       <Section tone="white">
         <Eyebrow>Escolha a unidade</Eyebrow>

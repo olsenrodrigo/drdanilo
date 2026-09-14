@@ -267,3 +267,46 @@ export function AnswerBlock({
     </motion.div>
   );
 }
+
+/** Foto de largura de conteúdo, com legenda opcional.
+ *
+ *  As fotos do ensaio são 3:2. A `width`/`height` declarada reserva o espaço
+ *  antes do download e evita o salto de layout (CLS) que o Core Web Vitals pune.
+ *  `loading="lazy"` em todas: nenhuma delas é a primeira dobra — o LCP do site
+ *  é o retrato do hero da home, que é carregado com prioridade. */
+export function Foto({
+  src,
+  alt,
+  width = 1600,
+  height = 1067,
+  legenda,
+}: {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  legenda?: string;
+}) {
+  return (
+    <figure className="overflow-hidden rounded-lg">
+      <img
+        src={src}
+        width={width}
+        height={height}
+        alt={alt}
+        className="h-auto w-full"
+        loading="lazy"
+        decoding="async"
+        style={{ display: "block" }}
+      />
+      {legenda && (
+        <figcaption
+          className="pt-3 font-sans-ui text-xs leading-snug"
+          style={{ color: "var(--muted-text)" }}
+        >
+          {legenda}
+        </figcaption>
+      )}
+    </figure>
+  );
+}

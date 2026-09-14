@@ -8,8 +8,10 @@ import {
   AnswerBlock,
   CTABand,
   WhatsAppButton,
+  Foto,
 } from "@/components/site/Primitives";
 import UnitCard from "@/components/site/UnitCard";
+import consultorioVista from "@/assets/images/danilo-consultorio-vista.webp";
 
 const respostas = perguntasDaRota("/consultorio");
 
@@ -25,6 +27,17 @@ export default function Consultorio() {
       >
         <WhatsAppButton origem="consultório — topo" />
       </PageHero>
+
+      <Section tone="white" size="sm">
+        <div className="container-narrow !px-0">
+          <Foto
+            src={consultorioVista}
+            width={1600}
+            height={1067}
+            alt="Dr. Danilo Martin Real no consultório, com vista para São Paulo"
+          />
+        </div>
+      </Section>
 
       <Section tone="white">
         <div className="grid gap-5 md:grid-cols-2">

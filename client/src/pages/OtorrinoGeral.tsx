@@ -6,8 +6,10 @@ import {
   InfoCard,
   CTABand,
   WhatsAppButton,
+  Foto,
 } from "@/components/site/Primitives";
-import { Droplets, Ear, Thermometer, Sparkles, Zap } from "lucide-react";
+import { Droplets, Ear, EarOff, Thermometer, Sparkles, Zap } from "lucide-react";
+import salaExame from "@/assets/images/danilo-sala-exame.webp";
 
 const blocos = [
   {
@@ -24,6 +26,11 @@ const blocos = [
     icon: Thermometer,
     title: "Dor e inflamação na garganta",
     text: "Investigação e tratamento de faringites, amigdalites e quadros recorrentes.",
+  },
+  {
+    icon: EarOff,
+    title: "Perda auditiva",
+    text: "Avaliação clínica de quem percebe dificuldade para ouvir ou entender conversas, investigação das causas mais comuns — cerume acumulado, infecções de ouvido, exposição a ruído ou alterações relacionadas à idade — e encaminhamento para os exames necessários, como a audiometria.",
   },
   {
     icon: Sparkles,
@@ -50,14 +57,26 @@ export default function OtorrinoGeral() {
         <WhatsAppButton origem="otorrino geral — topo" />
       </PageHero>
 
+      <Section tone="white" size="sm">
+        <div className="container-narrow !px-0">
+          <Foto
+            src={salaExame}
+            width={1200}
+            height={800}
+            alt="Dr. Danilo Martin Real na sala de exame otorrinolaringológico de seu consultório"
+          legenda="Sala de exame equipada para avaliação de ouvido, nariz e garganta."
+          />
+        </div>
+      </Section>
+
       <Section tone="white">
         <div className="container-narrow !px-0">
           <p className="text-pretty text-[0.9375rem] leading-relaxed">
-            Sinusite que não passa, dor de ouvido, dor de garganta recorrente ou
-            aquele incômodo de cerume acumulado — são queixas do dia a dia que
-            merecem atendimento rápido e resolutivo. Atendo o espectro completo da
-            otorrinolaringologia clínica, com a possibilidade de encaixe para casos
-            que não podem esperar.
+            Sinusite que não passa, dor de ouvido, dor de garganta recorrente,
+            sensação de perda auditiva ou aquele incômodo de cerume acumulado — são
+            queixas do dia a dia que merecem atendimento rápido e resolutivo. Atendo
+            o espectro completo da otorrinolaringologia clínica, com a possibilidade
+            de encaixe para casos que não podem esperar.
           </p>
         </div>
       </Section>
